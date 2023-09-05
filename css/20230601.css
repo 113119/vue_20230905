@@ -1,0 +1,25 @@
+:root {
+    --mycolor01: #82BBB5;
+    --mycolor02: #CA884B;
+    --mycolor03: #D1825B;
+    --mycolor04: #CCA142;
+}
+
+.box{
+   width: 200px;
+   height: 200px;
+   border: 2px solid #fa0;
+}
+.box01{
+    width: 200px;
+    height: 200px;
+    border: 2px solid #faa;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.box02{
+    width: 150px;
+    height: 150px;
+    border: 2px solid red;
+    background-color: var(--mycolor01);
+}
