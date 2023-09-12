@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d-flex 排版練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="display-3 fw-700">使用flex-column搭配mt-auto 排版</h1>
+        <div class="row">
+            <div class="col-md-4 d-flex flex-column">
+                <img src="images/party001.jpg" class="img-fluid" alt="">
+                <h1 class="fw-700">這是一個大標題</h1>
+                <p>加入時間此時頭銜，漫畫完美漫畫完美堅持依法避免控制官方家庭笑話推薦列表加速金額，紡織一是所謂創意友情印象電視情印象電視劇商標眼睛看過，更多自主開發商歷史集團裡面玄幻堅持依法避免控制官方家庭笑話推薦列表。
+                </p>
+                <a href="#" class="btn btn-primary mt-auto">詳細資料</a>
+            </div>
+            <div class="col-md-4 d-flex flex-column">
+                <img src="images/AEB003100.jpg" class="img-fluid" alt="">
+                <h1 class="fw-700">這是一個大標題</h1>
+                <p>加入時間此時頭銜，漫畫完美堅持依法避免控制官方家庭笑話推薦列表加速金額，紡織一是所謂創意友情印象電視劇商標眼睛看過，更多自主開熱門值得，直接跟我。</p>
+                <a href="#" class="btn btn-primary mt-auto">詳細資料</a>
+            </div>
+            <div class="col-md-4 d-flex flex-column">
+                <img src="images/party004.jpg" class="img-fluid" alt="">
+                <h1 class="fw-700">這是一個大標題</h1>
+                <p>加入時間此時頭銜，漫畫完美堅，紡織一是所謂創意友情印象電視劇商標眼睛看過，更多自主開發商歷史集團裡面玄幻不想那位春節業績，調節認識標準重量熱門值得，直接跟我。</p>
+                <a href="#" class="btn btn-primary mt-auto">詳細資料</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <h1 class="display-3 fw-700">練習:使用上述排版, 串接農委會地方美食資料(圖片, 店名, 地址, 詳細資料), 顯示使用前15比資料!</h1>
+        <div class="row" id="mydata">
+            <div class="col-md-4 d-flex flex-column">
+                <img src="images/party004.jpg" class="img-fluid" alt="">
+                <h1 class="fw-700">這是一個大標題</h1>
+                <p>加入時間此時頭銜，漫畫完美堅，紡織一是所謂創意友情印象電視劇商標眼睛看過，更多自主開發商歷史集團裡面玄幻不想那位春節業績，調節認識標準重量熱門值得，直接跟我。</p>
+                <a href="#" class="btn btn-primary mt-auto">詳細資料</a>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                type: "GET",
+                url: "https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx",
+                success: showdata,
+                error: function(){
+                    alert("錯誤-https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx");
+                }
+            });
+        });
+        function showdata(data){
+            console.log(data);
+
+            $("#mydata").empty();
+            for(var i=0; i<15; i++){
+                console.log(data[i]["Address"]);
+                var strHTML = '<div class="col-md-4 d-flex flex-column mt-3"><img src="'+data[i]["PicURL"]+'" class="img-fluid" alt=""><h1 class="fw-700">'+data[i]["Name"]+'</h1><p class="h2 fw-400">'+data[i]["Address"]+'</p><a href="#" class="btn btn-primary mt-auto">詳細資料</a></div>';
+                $("#mydata").append(strHTML);
+            }
+        }
+    </script>
+</body>
+
+</html>

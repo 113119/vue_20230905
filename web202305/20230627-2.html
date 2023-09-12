@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch8-排版練習-時間軸排版練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        .myimg {
+            height: 250px;
+        }
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            /* background-color: var(--mycolor07); */
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+        }
+
+        .timeline-section-pointer:before {
+            position: absolute;
+            content: "";
+            width: 25px;
+            height: 25px;
+            background-color: var(--mycolor14);
+            border-radius: 50%;
+            border: 8px solid var(--mycolor06);
+            /* bottom: 0; */
+        }
+
+        .timeline-section-pointer:hover:before {
+            width: 35px;
+            height: 35px;
+            border: 12px solid var(--mycolor08);
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .timeline-section:before,
+            .timeline-section-pointer:before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="timeline-section">
+            <div class="row justify-content-center timeline-section-pointer align-items-center">
+                <div class="col-md-5 mt-3">
+                    <div class="myimg bg-cover" style="background-image: url(images/party000.jpg);"></div>
+                </div>
+                <div class="col-md-5 mt-3">
+                    <h1>我是一個大標題01</h1>
+                    <p>我和自己沒什麼速度前進心理，儘快書庫體會之家進攻穩定投資者緊張理器你有可惜主營整理，水晶平時不得女性。</p>
+                    <p>會在對待試驗這樣各種計識德國特色引發一會兒，關閉把你。</p>
+                </div>
+            </div>
+            <div class="row justify-content-center flex-row-reverse timeline-section-pointer">
+                <div class="col-md-5 mt-3">
+                    <div class="myimg bg-cover" style="background-image: url(images/party001.jpg);"></div>
+                </div>
+                <div class="col-md-5 mt-3">
+                    <h1>我是一個大標題02</h1>
+                    <p>我和得女性。</p>
+                    <p>會在對待試驗這樣各種計算色引發一會兒，關閉把你。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <h1 class="display-3 fw-700">練習:使用上述排版, 串接農委會地方美食資料(圖片, 店名, 地址, 詳細資料), 顯示使用前15筆資料!</h1>
+        <div class="timeline-section" id="mydata">
+            <div class="row justify-content-center timeline-section-pointer">
+                <div class="col-md-5 mt-3">
+                    <div class="myimg bg-cover" style="background-image: url(images/party000.jpg);"></div>
+                </div>
+                <div class="col-md-5 mt-3">
+                    <h1>店名XXXXXX</h1>
+                    <p>地址: XXXXX</p>
+                    <p>詳細資料XXX</p>
+                </div>
+            </div>
+            <div class="row justify-content-center flex-row-reverse timeline-section-pointer">
+                <div class="col-md-5 mt-3">
+                    <div class="myimg bg-cover" style="background-image: url(images/party001.jpg);"></div>
+                </div>
+                <div class="col-md-5 mt-3">
+                    <h1>我是一個大標題02</h1>
+                    <p>我和一時狀態其中因素當前位置品種為何您是指數，最為你自己沒什麼速度前進心理，儘快書庫體會之家進攻穩定投資者緊張理器你有可惜主營整理，水晶平時不得女性。</p>
+                    <p>會在對待試驗這樣各種計算機觀點標題，所需任意那裡，下載懷疑很少貢獻認識德國特色引發一會兒，關閉把你。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx",
+                success: showdata,
+                error: function () {
+                    alert("error-https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx");
+                }
+            });
+        });
+        function showdata(data) {
+            console.log(data);
+            $("#mydata").empty();
+            for(var i=0; i<15; i++){
+                var feature = data[i]["FoodFeature"].substring(0, 30);
+                //判斷是否為偶數
+                if((i+1) % 2 == 0){
+                    //偶數
+                    var strHTML = '<div class="row justify-content-center flex-row-reverse timeline-section-pointer align-items-center"><div class="col-md-5 mt-3"><div class="myimg bg-cover" style="background-image: url('+data[i]["PicURL"]+');"></div></div><div class="col-md-5 mt-3"><h1>'+data[i]["Name"]+'</h1><p>地址: '+data[i]["Address"]+'</p><p>'+feature+'</p></div></div>';
+                }else{
+                    //基數
+                    var strHTML = '<div class="row justify-content-center timeline-section-pointer align-items-center"><div class="col-md-5 mt-3"><div class="myimg bg-cover" style="background-image: url('+data[i]["PicURL"]+');"></div></div><div class="col-md-5 mt-3"><h1>'+data[i]["Name"]+'</h1><p>地址: '+data[i]["Address"]+'</p><p>'+feature+'</p></div></div>';                   
+                }
+                $("#mydata").append(strHTML); 
+            }
+        }
+    </script>
+</body>
+
+</html>

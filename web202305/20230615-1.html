@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap欄與列</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        /* 使用@media 搭配尺寸改變.header-rwd背景圖片  */
+        /* .header-rwd{
+            background-image: url(images/party004.jpg);
+        } */
+        /* sm: 576px~768px */
+        @media screen and (max-width: 768px) {
+            .header-rwd {
+                background-image: url(images/party004.jpg);
+            }
+        }
+
+        /* md: 769px~992px */
+        @media screen and (min-width: 769px) and (max-width: 992px) {
+            .header-rwd {
+                background-image: url(images/party005.jpg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="display-3 fw-700">1. 斷點(d-none d-block) sm, md, lg, xl, xxl 共五張背景圖分別不同尺寸單獨出現</div>
+    <div class="header bg-cover d-md-none" style="background-image: url(images/party000.jpg); height: 280px;">
+        <div class="display-1 text-white">sm</div>
+    </div>
+    <div class="header bg-cover d-none d-md-block d-lg-none"
+        style="background-image: url(images/party001.jpg); height: 280px;">
+        <div class="display-1 text-white">md</div>
+    </div>
+    <div class="header bg-cover d-none d-lg-block" style="background-image: url(images/party002.jpg); height: 280px;">
+        <div class="display-1 text-white">lg</div>
+    </div>
+
+    <div class="display-3 fw-700">使用@media 搭配尺寸改變背景圖片</div>
+    <div class="header-rwd bg-cover" style="height: 280px;"></div>
+
+    <div class="display-3 fw-700">2. container</div>
+    <div class="container">0.專利疾病成了來了試驗別的放在網址故障文學保持一項，成功帶來實行所謂技巧，主演方案一</div>
+    <div class="container-sm bg-info">sm.專利疾病成了來了試驗別的放在網址故障文學保持一項，成功帶來實行所謂技巧，主演方案一</div>
+    <div class="container-md bg-primary">md.專利疾病成了來了試驗別的放在網址故障文學保持一項，成功帶來實行所謂技巧，主演方案一</div>
+    <div class="container-lg bg-success">lg.專利疾病成了來了試驗別的放在網址故障文學保持一項，成功帶來實行所謂技巧，主演方案一</div>
+    <div class="container-xl bg-warning">xl.專利疾病成了來了試驗別的放在網址故障文學保持一項，成功帶來實行所謂技巧，主演方案一</div>
+    <div class="container-xxl bg-danger">xxl.專利疾病成了來了試驗別的放在網址故障文學保持一項，成功帶來實行所謂技巧，主演方案一</div>
+
+    <div class="display-3 fw-700">3. 欄(column)排版</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="box02"></div>
+            </div>
+            <div class="col-9">
+                <div class="box02"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="box02"></div>
+            </div>
+            <div class="col-3">
+                <div class="box02"></div>
+            </div>
+            <div class="col-3">
+                <div class="box02"></div>
+            </div>
+            <div class="col-3">
+                <div class="box02"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="box02"></div>
+            </div>
+            <div class="col-4">
+                <div class="box02"></div>
+            </div>
+            <div class="col-4">
+                <div class="box02"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <div class="box02"></div>
+            </div>
+            <div class="col-2">
+                <div class="box02"></div>
+            </div>
+            <div class="col-2">
+                <div class="box02"></div>
+            </div>
+            <div class="col-2">
+                <div class="box02"></div>
+            </div>
+            <div class="col-2">
+                <div class="box02"></div>
+            </div>
+            <div class="col-2">
+                <div class="box02"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="display-4 fw-700">col 自動排版 不寫數字</div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="box02"></div>
+            </div>
+            <div class="col">
+                <div class="box02"></div>
+            </div>
+            <div class="col">
+                <div class="box02"></div>
+            </div>
+            <div class="col">
+                <div class="box02"></div>
+            </div>
+            <div class="col">
+                <div class="box02"></div>
+            </div>
+            <div class="col">
+                <div class="box02"></div>
+            </div>
+            <div class="col">
+                <div class="box02"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="display-4 fw-700">col-auto</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="box02"></div>
+            </div>
+            <div class="col-auto">
+                <div class="box02">內容決定寬度</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="display-4 fw-700">巢狀排列</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <div class="box02"></div>
+            </div>
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="box02 bg-success"></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="box02 bg-info"></div>
+                            </div>
+                            <div class="col-4">
+                                <div class="box02 bg-info"></div>
+                            </div>
+                            <div class="col-4">
+                                <div class="box02 bg-info"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="display-4 fw-700">4. 欄與斷點(cut point)</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="box02"></div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="box02"></div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="box02"></div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="box02"></div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="box02"></div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="box02"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="display-4 fw-700">5. offset(推移. 推格子)</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-4">
+                <div class="box02">
+                    <!-- <img src="images/cake01.jpg" class="img-fluid" alt=""> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="display-4 fw-700">6. Gutter(欄與欄之間的距離)</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box02 bg-success"></div>
+            </div>
+            <div class="col-md-3">
+                <div class="box02 bg-success"></div>
+            </div>
+            <div class="col-md-3">
+                <div class="box02 bg-success"></div>
+            </div>
+        </div>
+        <div class="row gx-5">
+            <div class="col-md-3">
+                <div class="box02 bg-success"></div>
+            </div>
+            <div class="col-md-3">
+                <div class="box02 bg-success"></div>
+            </div>
+            <div class="col-md-3">
+                <div class="box02 bg-success"></div>
+            </div>
+        </div>
+    </div>
+    <div class="display-5 fw-700">gx-0~5</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box02"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="row gx-1">
+                    <div class="col-md-4">
+                        <div class="box02 bg-primary"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box02 bg-primary"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box02 bg-primary"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="display-5 fw-700">gy-0~5</div>
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-md-6">
+                <div class="box02 bg-warning"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="box02 bg-warning"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="box02 bg-warning"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="box02 bg-warning"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="box02 bg-warning"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="box02 bg-warning"></div>
+            </div>
+        </div>
+    </div>
+    <div class="display-5 fw-700">g-{sm, md, lg, xl, xxl}-{0~5}</div>
+    <div class="container">
+        <div class="row gx-0 g-lg-5 g-xl-2">
+            <div class="col-md-6">
+                <div class="box02"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="box02"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="box02"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="box02"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="display-4 fw-700">7. row-cols-{sm, md, lg, xl, xxl}-{欄數}</div>
+    <div class="container">
+        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
+            <div class="col">
+                <div class="box02 bg-info"></div>
+            </div>
+            <div class="col">
+                <div class="box02 bg-info"></div>
+            </div>
+            <div class="col">
+                <div class="box02 bg-info"></div>
+            </div>
+            <div class="col">
+                <div class="box02 bg-info"></div>
+            </div>
+            <div class="col">
+                <div class="box02 bg-info"></div>
+            </div>
+            <div class="col">
+                <div class="box02 bg-info"></div>
+            </div>
+            <div class="col">
+                <div class="box02 bg-info"></div>
+            </div>
+            <div class="col">
+                <div class="box02 bg-info"></div>
+            </div>
+            <div class="col">
+                <div class="box02 bg-info"></div>
+            </div>
+            <div class="col">
+                <div class="box02 bg-info"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 欄與列</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        .bg-cover{
+            background-position: center center;
+            background-size: cover;
+        }
+        .header{
+            height: 260px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header bg-cover bg-info d-md-none" style="background-image: url(images/party000.jpg);">
+        <div class="display-4 fw-700">SM</div>
+    </div>
+    <div class="header bg-cover bg-success d-none d-md-block d-xl-none" style="background-image: url(images/party001.jpg);">
+        <div class="display-4 fw-700">MD</div>
+    </div>
+    <div class="header bg-cover bg-warning d-none d-xl-block" style="background-image: url(images/party002.jpg);">
+        <div class="display-4 fw-700">XL</div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

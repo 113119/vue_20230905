@@ -1,0 +1,11 @@
+
+1.	正確安裝FTP伺服器套件，以filezila連線成功才能得分。
+2.	正確設定使用者與資料夾權限
+3.	帳號(XXXX01)密碼(XXXXX)
+4.	指定資料匣(/var/XXXXXX)
+5.	權限設定(XX user: XXXX group: XXXX)
+
+6.	正確安裝phpMyAdmin，以http://XXXXXXX 網址確認可以出現詢問登入畫面才能得分。
+7.	設定最高權限帳號(XXXXX)密碼(XXXXX)，登入成功後才能得分。
+8.	設定一般權限帳號(XXXX)密碼(XXXX)可以管控的資料庫為(XXXXX01和XXXXXXX02)，登入成功並確認資料庫完成正確後才能得分。
+9.  安裝wordpress以http://XXXXXXXXX網址確認可以出現首頁畫面才能得分。

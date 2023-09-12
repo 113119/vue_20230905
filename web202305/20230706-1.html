@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch8- spacing 練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-md-3">
+                <!-- <ul class="list-group">
+                    <li class="list-group-item">功能一</li>
+                    <li class="list-group-item">功能二</li>
+                    <li class="list-group-item">功能三</li>
+                </ul> -->
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action" id="btn01">功能一</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="btn02">功能二</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="btn03">功能三</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row gx-2" id="mydata">
+                    <div class="col-md-4">
+                        <img src="images/party000.jpg" class="img-fluid" alt="">
+                        <p>一位楠雅很久轉身紀念無比，調查而在清楚醫院通用液晶排行依然色彩會員，堅持出了可以名單製作本網站透露配合領域自然回事是誰過程主板，舉辦房子興奮重大改變場所忽然民族現金一會兒今日，魯蛇聽到而且，意義歐美。
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/party000.jpg" class="img-fluid" alt="">
+                        <p>一位楠雅很久轉身紀念無比，調查而在清楚醫院通用液晶排行依然色彩會員，堅持出了可以名單製作本網站透露配合領域自然回事是誰過程主板，舉辦房子興奮重大改變場所忽然民族現金一會兒今日，魯蛇聽到而且，意義歐美。
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/party000.jpg" class="img-fluid" alt="">
+                        <p>一位楠雅很久轉身紀念無比，調查而在清楚醫院通用液晶排行依然色彩會員，堅持出了可以名單製作本網站透露配合領域自然回事是誰過程主板，舉辦房子興奮重大改變場所忽然民族現金一會兒今日，魯蛇聽到而且，意義歐美。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#btn01").click(function(){
+                console.log("123");
+                $("#mydata").html("功能一選單的資料!");
+                $("#btn01").addClass("active");
+                $("#btn02").removeClass("active");
+            });
+
+            $("#btn02").click(function(){
+                $("#mydata").html("功能二選單的資料!");
+                $("#btn01").removeClass("active");
+                $("#btn02").addClass("active");
+            });
+        });
+    </script>
+</body>
+
+</html>

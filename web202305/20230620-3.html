@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>串接資料練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+<body>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                type: "GET",
+                url: "http://192.168.10.252/web202305/20230620-getOpendata.php",
+                dataType: "json",
+                success: showdata,
+                error: function(){
+                    alert("錯誤-https://media.taiwan.net.tw/XMLReleaseALL_public/hotel_C_f.json");
+                }
+            });
+        });
+        function showdata(data){
+            console.log(data);
+        }
+    </script>
+</body>
+</html>

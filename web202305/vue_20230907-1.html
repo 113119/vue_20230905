@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue 練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        .box01 {
+            transition: transform 1s;
+
+        }
+
+        .rotate {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="demo">
+            <h2>1. v-if and v-for</h2>
+            <ul class="nav nav-tabs my-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" v-on:click="mylink = '台北市'"
+                        v-bind:class="{'active' : mylink == '台北市'}">台北市</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" v-on:click="mylink = '新北市'"
+                        v-bind:class="{'active' : mylink == '新北市'}">新北市</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" v-on:click="mylink = '台南市'"
+                        v-bind:class="{'active' : mylink == '台南市'}">台南市</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" v-on:click="mylink = '南投縣'"
+                        v-bind:class="{'active' : mylink == '南投縣'}">南投縣</a>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <template v-for="(item, key) in list">
+                    <li class="list-group-item" v-if="item.city == mylink">
+                        {{ item.city }} 地區 {{ item.product }} 1公斤 {{ item.price }} 元
+                    </li>
+                </template>
+            </ul>
+        </div>
+
+        <div class="demo">
+            <h2>2. 反轉文字 methods 宣告</h2>
+            <input type="text" class="form-control" v-model="reverseTxtx" name="" id="" v-on:keyup.enter="rText()"
+                v-on:keyup.esc="canaelText">
+            <a href="#" class="btn btn-primary my-2" v-on:click="rText()">反轉文字</a>
+            <h2>反轉文字: {{ r_Text }}</h2>
+            <h2>即時反轉文字(computed): {{ c_rText }}</h2>
+        </div>
+
+        <div class="demo">
+            <h2>3. class 綁定</h2>
+            <div class="box01" v-bind:class="{'rotate' : isRotate}"></div>
+            <hr class="my-4">
+            <a href="#" class="btn btn-primary" v-on:click="isRotate = !isRotate">旋轉</a>
+        </div>
+
+        <div class="demo">
+            <h2>4. computed 應用</h2>
+            <div class="mb-3">
+                <label for="" class="form-label">體重</label>
+                <input type="number" class="form-control" v-model="weight">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">身高</label>
+                <input type="number" class="form-control" v-model="height">
+            </div>
+            <a href="#" class="btn btn-success my-2" v-on:click.prevent="cal_bmi()">計算BMI</a>
+            <h2>您的BMI為: {{ bmi }}</h2>
+            <h2>您的BMI為(即時): {{ c_bmi }}</h2>
+        </div>
+
+        <div class="demo">
+            <h2>5. 常用表單(input)練習</h2>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="" v-model="checkboxM">
+                <label class="form-check-label" for="">
+                    是否要點餐(麥當勞)?
+                </label>
+            </div>
+            <div v-if="checkboxM">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="漢堡" id="" v-model="checkboxM_array">
+                    <label class="form-check-label" for="">
+                        漢堡
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="薯條" id="" v-model="checkboxM_array">
+                    <label class="form-check-label" for="">
+                        薯條
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="可樂" id="" v-model="checkboxM_array">
+                    <label class="form-check-label" for="">
+                        可樂
+                    </label>
+                </div>
+                <select class="form-select my-3" aria-label="Default select example" v-model="selectSugar">
+                    <option disabled>飲料甜度</option>
+                    <option value="全糖">全糖</option>
+                    <option value="半糖">半糖</option>
+                    <option value="小糖">小糖</option>
+                </select>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="" id="" value="現金" v-model="radioPay">
+                    <label class="form-check-label" for="">
+                        現金
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="" id="" value="刷卡" v-model="radioPay">
+                    <label class="form-check-label" for="">
+                        刷卡
+                    </label>
+                </div>
+                <hr>
+                <h2>您訂購的餐點為:</h2>
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="(item, key) in checkboxM_array">
+                        {{ key+1 }} -- {{ item }}
+                    </li>
+                </ul>
+                <h3>你選擇的糖度為: {{ selectSugar }}</h3>
+                <h3>你選擇的付款方式為: {{ radioPay }}</h3>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            data() {
+                return {
+                    text01: 'hello',
+                    mylink: '台北市',
+                    reverseTxtx: '',
+                    r_Text: '', //文字反轉
+                    isRotate: false, //紀錄是否旋轉
+                    weight: 60,
+                    height: 160,
+                    bmi: 0,
+                    checkboxM: false,
+                    checkboxM_array: [],
+                    radioPay: '現金',
+                    selectSugar: '全糖',
+                    list: [
+                        {
+                            product: '草莓',
+                            price: 100,
+                            city: '台北市'
+                        },
+                        {
+                            product: '草莓',
+                            price: 150,
+                            city: '南投縣'
+                        },
+                        {
+                            product: '香蕉',
+                            price: 180,
+                            city: '台北市'
+                        },
+                        {
+                            product: '香蕉',
+                            price: 100,
+                            city: '台南市'
+                        },
+                        {
+                            product: '西瓜',
+                            price: 200,
+                            city: '台南市'
+                        },
+                        {
+                            product: '西瓜',
+                            price: 200,
+                            city: '南投縣'
+                        },
+                        {
+                            product: '西瓜',
+                            price: 200,
+                            city: '新北市'
+                        },
+                        {
+                            product: '水蜜桃',
+                            price: 500,
+                            city: '新北市'
+                        },
+                        {
+                            product: '水蜜桃',
+                            price: 600,
+                            city: '南投縣'
+                        },
+                    ]
+                }
+            },
+            methods: {
+                rText() {
+                    this.r_Text = this.reverseTxtx.split('').reverse().join('');
+                },
+                canaelText() {
+                    this.r_Text = '';
+                    this.reverseTxtx = '';
+                },
+                cal_bmi() {
+                    new_height = this.height / 100;
+                    this.bmi = this.weight / (new_height * new_height);
+                }
+            },
+            computed: {
+                c_bmi() {
+                    new_height = this.height / 100;
+                    return this.weight / (new_height * new_height);
+                },
+                c_rText() {
+                    return this.reverseTxtx.split('').reverse().join('');
+                }
+            }
+        }
+
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

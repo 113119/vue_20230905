@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS排版練習-個人履歷為例</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+
+        body{
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        :root {
+            --mycolor01: #82BBB5;
+            --mycolor02: #CA884B;
+            --mycolor03: #D1825B;
+            --mycolor04: #CCA142;
+            --mycolor05: #E1DCD9;
+            --mycolor06: #8F8681;
+            --mycolor07: #A67F78;
+            --mycolor08: #32435F;
+            --mycolor09: #f30bae;
+        }
+
+        .section01 {
+            height: 100vh;
+            background-color: var(--mycolor01);
+            position: relative;
+        }
+
+        .box01 {
+            width: 200px;
+            height: 200px;
+            background-color: var(--mycolor02);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .box02 {
+            width: 200px;
+            height: 200px;
+            background-color: var(--mycolor02);
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .box03 {
+            width: 200px;
+            height: 200px;
+            background-color: var(--mycolor02);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .box04 {
+            width: 200px;
+            height: 200px;
+            background-color: var(--mycolor02);
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        .userimg {
+            position: absolute;
+            top: 30px;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            background-color: var(--mycolor06);
+            background-image: url(images/party000.jpg);
+            /* 固定背景圖片 */
+            background-attachment: fixed;
+        }
+
+        .bg-cover {
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .usertext {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--mycolor05);
+            font-weight: bolder;
+            text-align: center;
+            /* background-color: rgba(0, 0, 0, 0.3); */
+            background-image: linear-gradient(180deg, rgba(197, 103, 103, 0), rgba(7, 29, 2, 0.5));
+            padding: 15px;
+        }
+
+        .usertext h1 {
+            font-size: 80px;
+            margin-bottom: 0;
+            font-weight: 900;
+        }
+
+        .usertext p {
+            font-size: 32px;
+            font-weight: 500;
+        }
+
+        .section02 {
+            height: 380px;
+            position: relative;
+            margin-top: 30px;
+            font-size: 36px;
+            font-weight: 900;
+        }
+
+        .section02_box01 {
+            width: 320px;
+            height: 320px;
+            /* background-color: var(--mycolor08); */
+            position: absolute;
+            left: 10%;
+            border-radius: 50%;
+            background-image: url(images/02.jpg);
+            /* background-image: linear-gradient(180deg, rgba(240, 189, 189, 0.1), rgba(115, 15, 230, 0.8)); */
+            text-align: center;
+            line-height: 240px;
+        }
+
+        .section02_box01 a {
+            color: var(--mycolor05);
+            text-decoration: none;
+        }
+
+        @media screen and () {}
+    </style>
+</head>
+
+<body>
+    <div class="section01">
+        <div class="box01"></div>
+        <div class="box02"></div>
+        <div class="box03"></div>
+        <div class="box04"></div>
+        <div class="userimg bg-cover"></div>
+        <div class="usertext">
+            <h1>王小名</h1>
+            <hr>
+            <h2>認真負責</h2>
+            <p>專門怎麼把你毫無監控動作，正式開始醫院記者回應此處，和諧一。</p>
+        </div>
+    </div>
+    <div class="section02">
+        <div class="section02_box01 bg-cover">
+            <p><a href="#">作品集01</a></p>
+        </div>
+    </div>
+</body>
+
+</html>
