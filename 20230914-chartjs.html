@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圖表練習-chartjs</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div class="card mt-5">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                type: "GET",
+                url: "20230914-chartjs_api.php",
+                dataType: "json",
+                success: showdata,
+                error: function(){
+                    alert("error-20230914-chartjs_api.php");
+                }
+            });
+        });
+
+
+
+        const ctx = document.getElementById('myChart');
+
+        const myChart = new Chart(ctx, {
+            type: 'line', //bar: 長條圖 line: 折線圖 pie: 圓餅圖
+            data: {
+                labels: ['小黃瓜', '花椰菜', '冬瓜'],
+                datasets: [{
+                    label: '分佈',
+                    data: [50, 55,40],
+                    borderWidth: 10
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // function showdata(data){
+        //     console.log(data);
+
+        //     myChart.data.labels = [];
+        //     myChart.data.datasets[0].data = [];
+
+        //     data.data.forEach(function(item){
+        //         myChart.data.labels.push(item.Pname);
+        //         myChart.data.datasets[0].data.push(item.Price);
+        //     });
+
+        //     myChart.update();
+        // }
+    </script>
+</body>
+
+</html>

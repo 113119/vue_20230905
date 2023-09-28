@@ -1,0 +1,35 @@
+<?php
+    if( isset($_POST["pnum"])){
+        if($_POST["pnum"] != ""){
+            
+            $p_pnum = $_POST["pnum"];
+
+            $servername = "localhost";
+            $username = "id21258762_113119";
+            $password = "Aa-11111111";
+            $aaa = "id21258762_localhost";
+            // $servername = "localhost";
+            // $username = "owner";
+            // $password = "123456";
+            // $dbname = "id21258762_localhost";
+
+            $conn = mysqli_connect($servername, $username, $password, $aaa);
+
+            if(!$conn){
+                die("連線錯誤!".mysqli_connect_error());
+            }
+
+            $sql = "INSERT INTO product(Pname, Price, Pnum) VALUES('aaa', '1', '$p_pnum')";
+            if(mysqli_query($conn, $sql)){
+                echo '{"state" : true, "message" : "新增成功"}';
+            }else{
+                echo '{"state" : false, "message" : "新增失敗"}';
+            }
+            mysqli_close($conn);
+        }else{
+            echo '{"state" : false, "message" : "欄位不允許空白"}';
+        }
+    }else{
+        echo '{"state" : false, "message" : "欄位錯誤"}';
+    }
+?>
